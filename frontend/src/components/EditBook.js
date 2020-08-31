@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
 
-const EditBook = () => {
+const EditBook = ({activeItemDesc, activeItemName, activeItemId, handleClose, open}) => {
   return (
-    <div>Hello world from editbook</div>
+    <Modal show={open} onHide={handleClose} animation={false} centered>
+        <Modal.Header closeButton>
+            <Modal.Title>{activeItemName}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{activeItemDesc}</Modal.Body>
+
+        <Modal.Footer>
+        </Modal.Footer>
+    </Modal>
   );
 };
 
