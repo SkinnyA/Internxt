@@ -47,8 +47,17 @@ function App() {
         books={books}
         openModalWithItem={openModalWithItem}
       />
-      <EditBook />
-      <Modal />
+      <EditBook 
+        books={books}
+        open={open}
+        activeItemName={activeItemName}
+        activeItemDesc={activeItemDesc}
+        activeItemId={activeItemId}
+        handleClose={handleClose}
+        // handleOpen={handleOpen}
+        openModalWithItem={openModalWithItem}
+      />
+      {/* <Modal /> */}
     </Router>
       
   );
