@@ -13,6 +13,23 @@ function App() {
   // States for BooksList
   const [books, setBooks] = useState([]);
 
+  // States for EditBook
+  const [open, setOpen] = useState(false);
+  const [activeItemName, setActiveItemName] = useState('');
+  const [activeItemDesc, setActiveItemDesc] = useState('');
+  const [activeItemId, setActiveItemId] = useState('');
+
+  // Functions for EditBook
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const openModalWithItem = (item) => {
+    handleOpen();
+    setActiveItemName(item.title);
+    setActiveItemDesc(item.description);
+    setActiveItemId(item._id);
+  }
+
   // Retrieve books from api/db
   useEffect(() => {
     const getBooks = async () => {
