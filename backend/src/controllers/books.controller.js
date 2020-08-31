@@ -12,8 +12,8 @@ booksCtrl.getBooks = async (req, res) => {
 booksCtrl.postBook = async (req, res) => {
     const { title, description } = req.body;
     const newBook = new Book({
-        title: title,
-        description: description
+        title,
+        description
     })
     await newBook.save();
     res.json({message: 'Book Posted'})
