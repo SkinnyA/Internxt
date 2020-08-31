@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import BooksList from './components/BooksList';
-import EditBook from './components/EditBook';
+import ModalBook from './components/ModalBook';
 import Modal from './components/Modal';
 
 import { BrowserRouter as Router} from 'react-router-dom';
@@ -47,7 +47,7 @@ function App() {
         books={books}
         openModalWithItem={openModalWithItem}
       />
-      <EditBook 
+      <ModalBook 
         books={books}
         open={open}
         activeItemName={activeItemName}
