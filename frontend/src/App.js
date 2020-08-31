@@ -2,18 +2,19 @@ import React from 'react';
 import BooksList from './components/BooksList';
 import EditBook from './components/EditBook';
 import Modal from './components/Modal';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 import './App.css';
 
 function App() {
   return (
-    <div>
-      Hello world!
+    <Router>
+      Hello world from app!
       <BooksList />
       <EditBook />
       <Modal />
-    </div>
-    
+    </Router>
+      
   );
 }
 
