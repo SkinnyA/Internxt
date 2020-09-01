@@ -1,6 +1,6 @@
 import React from "react";
 
-const BooksList = ({ books, openModalWithItem }) => {
+const BooksList = ({ books, openModalWithItem, editModal }) => {
     return (
         <div className="row">
             {books.map((book) => (
@@ -23,6 +23,7 @@ const BooksList = ({ books, openModalWithItem }) => {
                         className="btn btn-danger ml-5"
                         data-toggle="modal"
                         style={{ width: "100px" }}  
+                        onClick={ () => editModal(book)}
                     >EDIT</button>
                 </div>
             ))}
