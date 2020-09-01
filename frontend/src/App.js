@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import BooksList from './components/BooksList';
 import ModalBook from './components/ModalBook';
-import Modal from './components/Modal';
+import EditBook from './components/EditBook';
 
 import { BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,19 +12,33 @@ function App() {
 
   // States for BooksList
   const [books, setBooks] = useState([]);
-
-  // States for EditBook
   const [open, setOpen] = useState(false);
   const [activeItemName, setActiveItemName] = useState('');
   const [activeItemDesc, setActiveItemDesc] = useState('');
   const [activeItemId, setActiveItemId] = useState('');
 
-  // Functions for EditBook
+  // State for ModalBook
+  const [openModalEdit, setOpenModalEdit] = useState(false);
+
+  // Functions for BooksList and EditBook
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // Function for ModalBook and EditBook
+  const handleOpenModalEdit = () => setOpenModalEdit(true);
+  const handleCloseModalEdit = () => setOpenModalEdit(false);
+
+  // Function for BooksList and EditBook
   const openModalWithItem = (item) => {
     handleOpen();
+    setActiveItemName(item.title);
+    setActiveItemDesc(item.description);
+    setActiveItemId(item._id);
+  }
+
+  // Function for ModalBook
+  const editModal = (item) => {
+    handleOpenModalEdit();
     setActiveItemName(item.title);
     setActiveItemDesc(item.description);
     setActiveItemId(item._id);
@@ -46,20 +60,24 @@ function App() {
       <BooksList 
         books={books}
         openModalWithItem={openModalWithItem}
+        editModal={editModal}
       />
       <ModalBook 
-        books={books}
-        open={open}
+        openModalEdit={openModalEdit}
         activeItemName={activeItemName}
         activeItemDesc={activeItemDesc}
         activeItemId={activeItemId}
-        handleClose={handleClose}
-        // handleOpen={handleOpen}
-        openModalWithItem={openModalWithItem}
+        handleCloseModalEdit={handleCloseModalEdit}
+        editModal={editModal}
       />
-      {/* <Modal /> */}
+      <EditBook 
+        openModalWithItem={openModalWithItem}
+        open={open}
+        activeItemName={activeItemName}
+        activeItemDesc={activeItemDesc}
+        handleClose={handleClose}
+      />
     </Router>
-      
   );
 }
 
