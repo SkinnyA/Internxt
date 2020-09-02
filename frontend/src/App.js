@@ -3,7 +3,6 @@ import BooksList from './components/BooksList';
 import ModalBook from './components/ModalBook';
 import EditBook from './components/EditBook';
 
-import { BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -56,7 +55,7 @@ function App() {
   }, [])
 
   return (
-    <Router>
+    <div className="background">
       <BooksList 
         books={books}
         openModalWithItem={openModalWithItem}
@@ -77,7 +76,8 @@ function App() {
         activeItemDesc={activeItemDesc}
         handleClose={handleClose}
       />
-    </Router>
+    </div>
+      
   );
 }
 

@@ -20,22 +20,19 @@ const ModalBook = ({activeItemDesc, activeItemName, activeItemId, handleCloseMod
     .then(res => res.json())
     .then((result) =>{
       console.log(result)
-    },
-    (error) => {
-      alert('Failed updating');
     })
   }
   return (
     <Modal show={openModalEdit} onHide={handleCloseModalEdit} animation={false} centered>
-            <Modal.Header closeButton>
-                <Modal.Title>Edit Book</Modal.Title>
+            <Modal.Header closeButton className="bg-modal">
+                <Modal.Title className="title-modal">Edit Book</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="body-modal">
                 <Row>
                     <Col sm={6}>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="title">
-                                <Form.Label style={{fontWeight:"bold"}}>{activeItemName}</Form.Label>
+                                <Form.Label className="title-label">{activeItemName}</Form.Label>
                                 <Form.Control 
                                     type="text"
                                     name="title"
@@ -44,7 +41,7 @@ const ModalBook = ({activeItemDesc, activeItemName, activeItemId, handleCloseMod
                                 />
                             </Form.Group>
                             <Form.Group controlId="desc">
-                                <Form.Label style={{fontWeight:"bold"}}>{activeItemDesc}</Form.Label>
+                                <Form.Label className="desc-label">{activeItemDesc}</Form.Label>
                                 <Form.Control 
                                     type="text"
                                     name="description"
@@ -53,7 +50,7 @@ const ModalBook = ({activeItemDesc, activeItemName, activeItemId, handleCloseMod
                                 />
                             </Form.Group>
                             <Form.Group>
-                                <Button variant="primary" type="submit">
+                                <Button variant="primary" type="submit" className="update-button">
                                     Update Book
                                 </Button>
                             </Form.Group>

@@ -4,10 +4,10 @@ import { Modal } from "react-bootstrap";
 const EditBook = ({activeItemDesc, activeItemName, handleClose, open}) => {
   return (
     <Modal show={open} onHide={handleClose} animation={false} centered>
-        <Modal.Header closeButton>
-            <Modal.Title>{activeItemName}</Modal.Title>
+        <Modal.Header closeButton className="bg-modal">
+            <Modal.Title className="title-modal">{activeItemName}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{activeItemDesc}</Modal.Body>
+        <Modal.Body className="body-modal">{activeItemDesc}</Modal.Body>
     </Modal>
   );
 };
